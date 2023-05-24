@@ -1,0 +1,7 @@
+select * from SPRINGUSERS
+
+select * from springboard
+
+SELECT * FROM (SELECT ROWNUM AS RNUM,B.* FROM (SELECT SEQ,TITLE,WRITER,CONTENT,TO_CHAR(REGDATE,'YYYY-MM-DD HH:MI:SS') AS REGDATE,CNT FROM SPRINGBOARD WHERE ${searchCondition} LIKE '%'||#{searchKeyword}||'%' ORDER BY SEQ DESC) B)
+
+SELECT * FROM SPRINGBOARD WHERE 1=1 and ${searchCondition} LIKE #{searchKeyword} ORDER BY SEQ DESC
